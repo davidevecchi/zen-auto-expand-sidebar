@@ -14,5 +14,3 @@ In the mods menu, clicking on the gear icon will give you several customization 
 - Control the delay to expand and animation Speeds
 - Hide or show the workspace indicator
 - Automatically reorder Essential tabs to keep displaying of the active tab
-
-![](./autoexpand_options_image.png)
