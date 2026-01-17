@@ -163,12 +163,14 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
         padding-left: 5px !important;
       }
 
+      //clip-path: inset(0 var(--hide) 0 0);
       position: absolute !important; //Removes it from the normal document flow, and needs the height adjustment
       z-index: -1 !important;
       height: 100%;
       min-width: 100px !important;
       width: var(--expanded-tab-bar-width) !important;
       --hover-width: 100px;
+      //overflow: hidden;
 
       /*Expanded state. Activates on hover, popup menu, etc*/
       &:is(:hover, [has-popup-menu=""], [movingtab], [flash-popup]), &:has(toolbarbutton[open="true"]:not(#zen-sidepanel-button), #urlbar[open]) {
@@ -189,6 +191,12 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
         &[zen-right-side="true"] ~ #zen-appcontent-wrapper #tabbrowser-tabbox {
           clip-path: inset(-2px calc(var(--expanded-tab-bar-width) - var(--collapsed-tab-bar-width) - 5px) -2px -2px round 10px);
         }
+        ~ #zen-appcontent-wrapper #zen-tabbox-wrapper {
+          //box-shadow: 15px 0px 15px rgba(0, 0, 0, 0);
+        }
+        tab:not([zen-essential], [pinned]) .tab-background{
+          //width: 100% !important; //superpins
+        }
         tab:not([zen-essential]) .tab-background{
           width: calc(var(--expanded-tab-bar-width) - 14px) !important;
         }
@@ -208,6 +216,7 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
           opacity: 100% !important;
         }
         #zen-sidebar-foot-buttons > *:not(#zen-workspaces-button){
+        //display: flex !important;
         opacity: 100% !important;
         }
         #zen-workspaces-button {
@@ -218,6 +227,8 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
         position: relative !important;
         transform: scale(1);
         opacity: 100% !important;
+        //margin-left: auto! important;
+        //margin-right: auto! important;
         }
         #zen-media-focus-button::after {
         width: 100% !important;
@@ -228,6 +239,13 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
         tab:is([zen-essential]){
           width: 100% !important;
         }
+        vbox.zen-workspace-tabs-section.zen-workspace-pinned-tabs-section {
+          //transform: translateX(0px) !important;
+        }
+        tab:is([zen-essential], [pinned]):is([selected]){
+          //order: 0 !important; // Move it to the front without breaking layout
+          //grid-column: 1 !important;
+        }
         .toolbarbutton-text{
           opacity: 100% !important;
         }
@@ -237,8 +255,15 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
         #urlbar:not([focused=""]){
         clip-path: inset(0 0 0 0 round 10px) !important;
         }
+        tab:not([zen-essential]){
+          //width: 100%;
+          //transition: width 0ms ease-in-out var(--transition-delay) !important;
+        }
         .pinned-tabs-container-separator{
           width: inherit !important;
+          //margin-inline: inherit !important;
+          //display: block !important;
+          //justify-self: inherit !important;
         }
         .zen-current-workspace-indicator .zen-current-workspace-indicator-name{
           opacity: 100% !important;
@@ -302,14 +327,20 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
     }
     }*/
 
+      #TabsToolbar{
+      //min-width: 100px !important;
+      //width: 230px !important;
+      }
 
       /*Important: Makes so that the webpage display covers the tab bar*/
       #zen-appcontent-wrapper{
       z-index: 1000 !important;
+      //transition: z-index 100ms ease var(--transition-delay);
       }
 
       /*Adds dynamic drop shadow to this element that parents tabbrowser-tabbox so the shadow follows the web page with the clip path*/
       #zen-tabbox-wrapper {
+      //box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
       filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.3));
       }
 
@@ -329,12 +360,14 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
       /*Inverts elements if the tab bar is right-sided. Done this way because translating the whole navigator-toolbox makees the clip path laggy*/
       #navigator-toolbox[zen-right-side="true"]{
       .zen-essentials-container{
+        //direction: rtl !important;
         justify-items: end;
       }
       .workspace-arrowscrollbox {
         direction: rtl !important;
       }
       .workspace-arrowscrollbox .zen-workspace-pinned-tabs-section{
+        //direction: ltr !important; //superpins
       }
       #zen-media-controls-toolbar{
       margin-left: auto;
@@ -400,6 +433,7 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
       }
       #navigator-toolbox[zen-right-side="true"]{
       #tabs-newtab-button .toolbarbutton-text{
+      //transform: translateX(calc(-1 * var(--expanded-tab-bar-width) + 110px));
       padding-left: 0px !important;
       &::before{margin-right: auto;}
       }
@@ -446,6 +480,13 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
       transform: translateX(calc(var(--collapsed-tab-bar-width)/2 - 25px));
       }
 
+      /*Resizes essentials buttons*/
+      .zen-essentials-container{
+        //margin-top:5px;
+        //grid-template-rows: repeat(auto-fit, minmax(50px, 1fr)) !important;
+        //grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)) !important;
+      }
+
       /*fades audio button*/
       .tab-audio-button{
         opacity: 0% !important;
@@ -455,10 +496,13 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
       @media (-moz-bool-pref: "zen.view.use-single-toolbar") {
         #nav-bar{
         position: relative !important;
+        //width: 40px !important;
+        //padding-right: 2px !important;
         }
       }
       /*adds relief for window buttons on a right-sided tab bar, and for the back button on the left tab bar*/
       @media not all and (-moz-bool-pref: "zen.view.use-single-toolbar") {
+        /*#zen-main-app-wrapper[zen-compact-mode="false"]{*/
         #navigator-toolbox[zen-right-side="true"] ~ #zen-appcontent-wrapper #nav-bar{
         padding-right: 115px !important;
         padding-left: 0px !important;
@@ -466,6 +510,7 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
         #navigator-toolbox[zen-right-side="true"] #zen-toggle-compact-mode {
         margin-inline-start: auto;
         }
+        /*}*/
         #navigator-toolbox:not([zen-right-side="true"]) ~ #zen-appcontent-wrapper #nav-bar{
         padding-left: 0px !important;
         }
@@ -481,6 +526,11 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
         #zen-toggle-compact-mode{
         transform: scaleY(0.9);
         }
+        /*#zen-toggle-compact-mode{
+         *                 justify-content: flex-end !important;
+         *                 position: absolute;
+         *                 right: 0 !important;
+        }*/
         }
         }
       }
@@ -500,9 +550,11 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
 
       /*aligns pinned tab favicons*/
       #navigator-toolbox:not([zen-right-side="true"]) vbox.zen-workspace-tabs-section.zen-workspace-pinned-tabs-section {
+      //transform: translateX(-6px) !important;
       margin: 0 !important;
       }
       #navigator-toolbox[zen-right-side="true"] vbox.zen-workspace-tabs-section.zen-workspace-pinned-tabs-section {
+      //transform: translateX(11px) !important; //superpins
       margin: 0 !important;
       }
 
@@ -539,6 +591,7 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
       }
       }
       #navigator-toolbox:not([zen-right-side="true"]) #zen-workspaces-button {
+      //order: -1 !important;
       transform: translateX(calc(var(--collapsed-tab-bar-width)/2 - var(--expanded-tab-bar-width)/2 + 0px));
       }
       #navigator-toolbox[zen-right-side="true"] {
@@ -556,12 +609,16 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
       /*Collapses tab for square backgrounds on hover, during collapsed state*/
       tab:not([zen-essential]) .tab-background{
         width: 37px;
+        //transition: width 0ms ease-in-out calc(var(--transition-delay) + var(--transition-duration)) !important;
       }
 
       /*collapses the thin line separator*/
       .pinned-tabs-container-separator{
         width: calc(var(--collapsed-tab-bar-width) - 0px) !important;
         padding-left: 4px !important;
+        //margin-inline: 0px !important;
+        //display: flex !important;
+        //justify-self: start !important;
       }
 
       /*Positions back button to the left (sane layout)*/
@@ -574,6 +631,8 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
 
       #back-button{
       order: -3 !important;
+      //margin-left: 3px !important;
+      //margin-right: 10px !important;
       }
       #forward-button{
       order: -2 !important;
@@ -586,6 +645,9 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
       }
       #unified-extensions-button{
       order: 99 !important;
+      }
+      #history-panelmenu{
+      //order: 2 !important;
       }
       #PanelUI-button{
       order: 100 !important;
@@ -619,17 +681,20 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
       /*Reworks the close button on the right side, adding a transition animation and prevernting
        * closing tabs on accident during the collapsed state*/
       #navigator-toolbox[zen-right-side="true"]{
+      .tab-content{
+        padding-left: 10px !important;
+      }
       .tabbrowser-tab[selected="true"]{
         .tab-label {
           transform: translateX(19px) !important;
         }
         .tab-close-button {
           opacity: 100% !important;
-          transform: translateX(3px) !important;
+          transform: translateX(7px) !important;
         }
         &:hover{
           .tab-close-button {
-            transform: translateX(0px) !important;
+            transform: translateX(4px) !important;
           }
         }
       }
@@ -649,6 +714,7 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
         left: 0;
         display: flex !important;
         opacity: 0% !important;
+        transform: translateX(4px) !important;
       }
       &:hover .tabbrowser-tab:not([zen-essential]) .tab-close-button{
         clip-path: inset(0 0 0 0);
@@ -709,6 +775,7 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
         margin-right: auto !important;
       }
       .tab-reset-pin-label{
+        //position: relative !important;
         margin-right: auto !important;
         transform: translate(25px, -3px) !important;
       }
@@ -716,6 +783,7 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
       #navigator-toolbox:not([zen-right-side="true"]){
       .tabbrowser-tab[zen-pinned-changed] {
         .tab-icon-stack{
+          //display: flex !important;
           position: relative !important;
           transform: translate(-11px, -20px) !important;
         }
