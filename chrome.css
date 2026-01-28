@@ -26,9 +26,9 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
 
       #zen-sidebar-top-buttons, #zen-sidebar-top-buttons-customization-target {
         display: block !important;
-        height: 12px !important;
-        min-height: 12px !important;
-        max-height: 12px !important;
+        height: 8px !important;
+        min-height: 8px !important;
+        max-height: 8px !important;
       }
 
       /*Makes scrolbar clickable*/
@@ -155,7 +155,13 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
       #navigator-toolbox:has(#urlbar[open]){
       clip-path: none !important;
       }
-
+      
+      tab-group:not([split-view-group]) {
+        & .tab-group-container {
+          margin-inline-start: 0px !important;
+        }
+      }
+      
       /*Main code block that defines the expanded state (reverts changes of the collapsed state, and clips the viewport)*/
       #navigator-toolbox{
       --transition-delay-smooth: var(--transition-delay-after);
@@ -267,6 +273,11 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
         }
         tab-group {
           clip-path: inset(0 0 0 0);
+        }
+        tab-group:not([split-view-group]) {
+          & .tab-group-container {
+            margin-inline-start: 12px !important;
+          }
         }
       }
       }
