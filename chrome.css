@@ -25,7 +25,7 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
       }
 
       #zen-sidebar-top-buttons, #zen-sidebar-top-buttons-customization-target {
-        display: none !important;
+        display: block !important;
         height: 12px !important;
         min-height: 12px !important;
         max-height: 12px !important;
