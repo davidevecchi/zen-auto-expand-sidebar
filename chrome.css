@@ -24,6 +24,10 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
         }
       }
 
+      #zen-sidebar-top-buttons {
+        display: none;
+      }
+
       /*Makes scrolbar clickable*/
       scrollbox:nth-child(5) {
         scrollbar-width: thin !important;
