@@ -317,9 +317,9 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
       }
 
       /*Adds space for the tab icons*/
-      #navigator-toolbox:not([zen-right-side="true"]) ~ #zen-appcontent-wrapper{
+      /*#navigator-toolbox:not([zen-right-side="true"]) ~ #zen-appcontent-wrapper{
       margin-left: var(--collapsed-tab-bar-width);
-      }
+      }*/
       #navigator-toolbox[zen-right-side="true"] ~ #zen-appcontent-wrapper{
       margin-right: var(--collapsed-tab-bar-width);
       }
