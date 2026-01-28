@@ -163,7 +163,6 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
       tab-group:not([split-view-group]) {
         & .tab-group-container {
           margin-inline-start: 0px !important;
-          transition: margin-inline-start var(--transition-duration) ease-in-out var(--transition-delay-smooth) !important;
         }
       }
       
