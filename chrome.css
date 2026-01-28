@@ -25,8 +25,10 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
       }
 
       #zen-sidebar-top-buttons, #zen-sidebar-top-buttons-customization-target {
-        display: none;
-        max-height: 0;
+        display: none !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        max-height: 0 !important;
       }
 
       /*Makes scrolbar clickable*/
