@@ -31,6 +31,10 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
         max-height: 8px !important;
       }
 
+      #zen-appcontent-navbar-wrapper {
+        margin-left: calc(-1 * var(--collapsed-tab-bar-width));
+      }
+
       /*Makes scrolbar clickable*/
       scrollbox:nth-child(5) {
         scrollbar-width: thin !important;
