@@ -69,8 +69,7 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
         .tab-audio-button, #zen-media-controls-hbox > *:not(#zen-media-focus-button), #zen-media-main-vbox > *:not(#zen-media-controls-hbox),
         tab:not([zen-essential]) .tab-background, #tabs-newtab-button,
         .pinned-tabs-container-separator, .zen-current-workspace-indicator-name,
-        .tab-group-label, #zen-sidebar-top-buttons-customization-target > *,
-        .tab-group-container, tab-group{
+        .tab-group-label, .tab-group-container, tab-group{
           transition: clip-path 0ms ease-in-out var(--transition-delay-fast),
           transform 0ms ease-in-out var(--transition-delay-fast),
           opacity 0ms ease-in-out var(--transition-delay-fast),
@@ -99,7 +98,7 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
         .tab-audio-button, #zen-media-controls-hbox > *:not(#zen-media-focus-button), #zen-media-main-vbox > *:not(#zen-media-controls-hbox),
         tab:not([zen-essential]) .tab-background, #tabs-newtab-button, .tab-label-container,
         .pinned-tabs-container-separator, .zen-current-workspace-indicator-name, #zen-workspaces-button, .tab-group-label,
-        #zen-sidebar-top-buttons-customization-target > *, #zen-workspaces-button .subviewbutton, #zen-media-focus-button::after,
+        #zen-workspaces-button .subviewbutton, #zen-media-focus-button::after,
         .tab-group-container, tab-group{
           transition: clip-path 0ms ease-in-out var(--transition-delay-fast),
           transform 0ms ease-in-out var(--transition-delay-fast),
@@ -126,7 +125,7 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
         .tab-audio-button, #zen-media-controls-hbox > *:not(#zen-media-focus-button), #zen-media-main-vbox > *:not(#zen-media-controls-hbox),
         tab:not([zen-essential]) .tab-background, #tabs-newtab-button, .tab-label-container,
         .pinned-tabs-container-separator, .zen-current-workspace-indicator-name,
-        .tab-group-label, #zen-sidebar-top-buttons-customization-target > *, tab:is([zen-essential]),
+        .tab-group-label, tab:is([zen-essential]),
         #zen-workspaces-button, #zen-workspaces-button .subviewbutton, #zen-media-focus-button::after, .tab-group-container, tab-group{
         transition: clip-path 0ms ease-in-out var(--transition-delay-fast),
         transform 0ms ease-in-out var(--transition-delay-fast),
@@ -506,9 +505,6 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
               #navigator-toolbox{
               transform: translateY(30px);
               padding-bottom: 35px !important;
-              #zen-sidebar-top-buttons{
-              min-height: 25px !important;
-              }
               #zen-toggle-compact-mode{
               transform: scaleY(0.9);
               }
@@ -590,44 +586,6 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
       .pinned-tabs-container-separator{
         width: calc(var(--collapsed-tab-bar-width) - 0px) !important;
         padding-left: 4px !important;
-      }
-
-      /*Positions back button to the left (sane layout)*/
-      #zen-sidebar-top-buttons-customization-target{
-      margin-left: calc(var(--collapsed-tab-bar-width)/2 - 18px) !important;
-
-      #back-button{
-      order: -3 !important;
-      }
-      #forward-button{
-      order: -2 !important;
-      }
-      #stop-reload-button{
-      order: -1 !important;
-      }
-      #zen-sidebar-top-buttons-separator{
-      order: 0 !important;
-      }
-      #unified-extensions-button{
-      order: 99 !important;
-      }
-      #history-panelmenu{
-      //order: 2 !important;
-      }
-      #PanelUI-button{
-      order: 100 !important;
-      }
-      }
-      #navigator-toolbox:not(:is(
-      :hover,
-      [has-popup-menu=""],
-      [movingtab],
-      [flash-popup],
-      :has(toolbarbutton[open="true"]:not(#zen-sidepanel-button), #urlbar[open])
-      )) {
-        #zen-sidebar-top-buttons-customization-target > *:not(#back-button, #zen-toggle-compact-mode){
-        opacity: 0 !important;
-        }
       }
 
       /*Made the arrowscrollbox collapse in the right direction, now it fixes tab sizing*/
