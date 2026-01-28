@@ -26,6 +26,7 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
 
       #zen-sidebar-top-buttons {
         display: none;
+        max-height: 0;
       }
 
       /*Makes scrolbar clickable*/
