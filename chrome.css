@@ -193,8 +193,8 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
       width: var(--expanded-tab-bar-width) !important;
       --hover-width: 100px;
 
-      /*Expanded state. Activates on hover, popup menu, etc*/
-      &:is(:hover, [has-popup-menu="true"], [movingtab], [flash-popup]), &:has(#urlbar[open], toolbarbutton[open="true"]:not(#zen-sidepanel-button)) {
+      /*Expanded state. Activates on tab area hover, popup menu, etc*/
+      &:is(.zen-workspace-normal-tabs-section:hover, .zen-workspace-pinned-tabs-section:hover, [has-popup-menu="true"], [movingtab], [flash-popup]), &:has(#urlbar[open], toolbarbutton[open="true"]:not(#zen-sidepanel-button)) {
         --transition-delay-smooth: calc(var(--transition-delay) + 0ms);
         --transition-delay-fast: var(--transition-delay);
         ~ #zen-appcontent-wrapper{
