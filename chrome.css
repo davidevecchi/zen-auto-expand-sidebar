@@ -166,14 +166,14 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
         }
       }
 
-      #navigator-toolbox { /* NEW */
-        contain: layout paint; /* NEW */
-        will-change: clip-path, transform; /* NEW */
+      /*#navigator-toolbox {
+        contain: layout paint;
+        will-change: clip-path, transform;
       }
       
-      #zen-appcontent-wrapper { /* NEW */
-        contain: layout paint; /* NEW */
-      }
+      #zen-appcontent-wrapper {
+        contain: layout paint;
+      }*/
       
       /*Main code block that defines the expanded state (reverts changes of the collapsed state, and clips the viewport)*/
       #navigator-toolbox{
