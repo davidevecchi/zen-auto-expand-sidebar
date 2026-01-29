@@ -159,7 +159,7 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
       #navigator-toolbox:has(#urlbar[open]){
       clip-path: none !important;
       }
-            
+
       tab-group:not([split-view-group]) {
         & .tab-group-container {
           margin-inline-start: 0px !important;
@@ -170,11 +170,11 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
         contain: layout paint;
         will-change: clip-path, transform;
       }
-      
+
       #zen-appcontent-wrapper {
         contain: layout paint;
       }*/
-      
+
       /*Main code block that defines the expanded state (reverts changes of the collapsed state, and clips the viewport)*/
       #navigator-toolbox{
       --transition-delay-smooth: var(--transition-delay-after);
@@ -203,8 +203,8 @@ not (-moz-bool-pref: "zen.view.use-single-toolbar") {
       --hover-width: 100px;
 
       /*Expanded state. Activates on hover, popup menu, etc*/
-      /*&:is(:hover, [has-popup-menu="true"], [movingtab], [flash-popup]), &:has(#urlbar[open], toolbarbutton[open="true"]:not(#zen-sidepanel-button)) {*/
-      &:is(:hover, [has-popup-menu="true"], [movingtab], [flash-popup]), &:has(#urlbar[open]) {
+      &:is(:hover, [has-popup-menu="true"], [movingtab], [flash-popup]), &:has(#urlbar[open], toolbarbutton[open="true"]:not(#zen-sidepanel-button)) {
+      /*&:is(:hover, [has-popup-menu="true"], [movingtab], [flash-popup]), &:has(#urlbar[open]) {*/
         --transition-delay-smooth: calc(var(--transition-delay) + 0ms);
         --transition-delay-fast: var(--transition-delay);
         ~ #zen-appcontent-wrapper{
